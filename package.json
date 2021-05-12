@@ -1,0 +1,23 @@
+{
+  "name": "parentsMatcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pessoa-poli/PLE-2020.2---ano-2021.1-EEL418---Programa-o-Avan-ada.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pessoa-poli/PLE-2020.2---ano-2021.1-EEL418---Programa-o-Avan-ada/issues"
+  },
+  "homepage": "https://github.com/pessoa-poli/PLE-2020.2---ano-2021.1-EEL418---Programa-o-Avan-ada#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
