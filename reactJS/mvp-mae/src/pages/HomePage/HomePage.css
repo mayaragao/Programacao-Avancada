@@ -107,6 +107,7 @@
 .box-icones {
   margin-left: 25%;
   margin-right: auto;
+  width: 100vw;
   height: 418px;
 }
 
