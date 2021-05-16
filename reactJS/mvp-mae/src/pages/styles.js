@@ -16,7 +16,7 @@ export const RightContainer = styled.div`
 
 export const LeftContainer = styled.div`
   width: 30vw;
-  padding-top: 40%;
+  padding-top: 23%;
 `;
 
 export const Title = styled.h1`
