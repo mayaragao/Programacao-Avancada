@@ -36,7 +36,7 @@ const Listagem = () => {
                 </li>
                 <br />
               </ul>
-              <LinkContainer to="/about">
+              <LinkContainer to="/register">
                 <button className="btn-green ml-5">Conhecer</button>
               </LinkContainer>
             </div>

@@ -4,7 +4,7 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/Login/Login";
-import RegisterPage from "./pages/Register/AboutPage";
+import RegisterPage from "./pages/Register/RegisterPage";
 
 ReactDOM.render(
   <React.StrictMode>
