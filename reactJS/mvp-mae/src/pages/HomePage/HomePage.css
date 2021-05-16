@@ -91,31 +91,22 @@
 
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.topo-text h1 {
+.maetext p {
   text-align: center;
-  justify-content: center;
   font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 35px;
-
-  color: #000000;
-}
-.maetext p,
-.topo-text p {
-  text-align: center;
-  /* justify-content: center; */
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   line-height: 20px;
 }
+
 .container {
+  width: 100%;
+}
+
+.box-icones {
   margin-left: 25%;
   margin-right: auto;
-  width: 1152px;
   height: 418px;
 }
 
@@ -124,11 +115,6 @@
   margin-right: auto;
 }
 
-.topo-text {
-  padding-top: 20%;
-  margin-left: 90px;
-  margin-right: 90px;
-}
 .maetext {
   padding-top: 13%;
   margin-left: 90px;
@@ -147,13 +133,50 @@
   font-weight: bolder;
 }
 
-.topo button {
-  justify-content: end;
+.box-topo {
+  background: #90ab9b;
+  height: 572px;
+  width: 100%;
+}
+
+.items-topo {
+  display: flex;
+  align-self: center;
+}
+
+.topo-text {
+  padding-top: 20%;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.topo-text h1 {
+  text-align: center;
+  justify-content: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 35px;
+}
+
+.topo-text p {
+  text-align: center;
+  /* justify-content: center; */
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+}
+.row-header {
+  display: inline-flex;
+  justify-content: flex-end;
 }
 
 .box-footer {
   background-color: #90ab9b;
-  height: 418px;
+  height: 318px;
   /*width: 1152px;*/
 }
 .btn-green {
