@@ -115,7 +115,7 @@
 .container {
   margin-left: 25%;
   margin-right: auto;
-  width: 1152px;
+  width: 100vw;
   height: 418px;
 }
 

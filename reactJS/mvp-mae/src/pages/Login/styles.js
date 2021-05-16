@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const RightContainer = styled.div`
   background-color: #90ab9b;
-  width: 50vw;
+  width: 30vw;
   height: 100vh;
-  margin-right: -9.4vw;
+
   display: flex;
   justify-content: center;
-
   #loginImage {
     width: 35vw;
     background-color: #90ab9b;
