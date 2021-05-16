@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/Login/Login";
 import ExperiencesPage from "./pages/Experiences/Experiences";
 import RegisterPage from "./pages/Register/Register";
+import ExperienceRegisterPage from "./pages/ExperienceRegister/ExperienceRegister";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route path="/login" component={LoginPage} />
         <Route path="/experiencias" component={ExperiencesPage} />
         <Route path="/cadastro" component={RegisterPage} />
+        <Route path="/cadastrarExperiencia" component={ExperienceRegisterPage} />
       </Switch>
     </Router>
   </React.StrictMode>,

@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 98.9vw; 
+
+
+`;
+
 export const RightContainer = styled.div`
   background-color: #90ab9b;
-  width: 45vw;;
-  height: 100vh;
-  margin-right: -8.2vw;
+  width: 44%;
+  height: 100vh;  
   display: flex;
   justify-content: center;
+  align-items: center;
+
 
   #image {
     width: 35vw;
@@ -15,8 +22,10 @@ export const RightContainer = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-  width: 30vw;
-  padding-top: 23%;
+  width: 80%;
+  padding-top: 20%;
+  padding-left: 10vw;
+ 
 `;
 
 export const Title = styled.h1`
@@ -30,15 +39,16 @@ export const Title = styled.h1`
 export const Button = styled.button`
   color: white;
   background-color: #90ab9b;
-  width: 30vw;
+  width: 100%;
   height: 40px;
   border: #90ab9b;
   border-radius: 5px;
+  margin-top: 0.5vw;
 `;
 
 export const InlineButton = styled.h5`
   padding-top: 1vw;
-  font-size: 1.1vw;
+  font-size: 1vw;
   text-align: center;
   color: #7b7872;
   text-decoration: underline;

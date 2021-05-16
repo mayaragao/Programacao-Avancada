@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import {  Row, Col, Form } from "react-bootstrap";
 import LoginImage from "../../assets/images/login_image.svg";
 import {
+  Container,
   RightContainer,
   LeftContainer,
   Title,
@@ -16,7 +17,7 @@ const RegisterPage = () => {
       <Row>
         <Col>
           <LeftContainer>
-            <Title>LOGIN</Title>
+            <Title>CADASTRO</Title>
             <Form>
               <Form.Group controlId="formGroupName">
                 <Form.Control type="name" placeholder="Nome" />
