@@ -28,11 +28,48 @@
   align-items: center;
   flex-direction: column;
 }
-.imgmae {
+.imgmae,
+.imgtopo {
   padding-top: 11%;
   margin: auto;
-  content: url("./components/images/mae_c_fio.png");
 }
+
+.box-img-text {
+  padding-top: 11%;
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+}
+.box-img-text img {
+  padding-top: 11%;
+  padding-left: 30%;
+  padding-right: 30%;
+  margin: auto;
+}
+
+.box-img-text h4 {
+  text-align: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 35px;
+
+  color: #000000;
+}
+
+.box-img-text p {
+  text-align: justify;
+  /* justify-content: center; */
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+}
+
 .listagemtext {
   padding-top: 10%;
   padding-left: 95px;
@@ -40,10 +77,11 @@
   width: 500px;
   height: 306.5px;
 }
-.maetext h3 {
+.maetext h3,
+.topo-text h1 {
   text-align: center;
   justify-content: center;
-  font-family: Roboto;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
@@ -51,10 +89,11 @@
 
   color: #000000;
 }
-.maetext p {
+.maetext p,
+.topo-text p {
   text-align: center;
   /* justify-content: center; */
-  font-family: Roboto;
+  font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -63,20 +102,40 @@
 .container {
   margin-left: 25%;
   margin-right: auto;
+  width: 1152px;
+  height: 418px;
 }
-.maetext {
-  padding-top: 25%;
+
+.card-container {
+  margin-left: 25%;
+  margin-right: auto;
+}
+
+.maetext,
+.topo-text {
+  padding-top: 20%;
   margin-left: 90px;
   margin-right: 90px;
 }
 .maetext ul {
   list-style: none;
+  font-family: "Open Sans", sans-serif;
 }
 .maetext li::before {
-  content: "*";
+  content: "•";
   color: #90ab9b;
   display: inline-block;
   width: 1em;
   margin-left: 1em;
   font-weight: bolder;
+}
+
+.topo button {
+  justify-content: end;
+}
+
+.box-footer {
+  background-color: #90ab9b;
+  height: 418px;
+  /*width: 1152px;*/
 }
