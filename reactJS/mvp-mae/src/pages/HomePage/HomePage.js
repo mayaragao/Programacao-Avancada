@@ -5,6 +5,7 @@ import Listagem from "../../components/Listagem";
 import Cards from "../../components/Card_experience";
 import Topo from "../../components/Topo";
 import Footer from "../../components/Footer";
+import Icones from "../../components/Icones";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -14,8 +15,8 @@ const HomePage = () => {
         <Button variant="outline-dark">Entrar</Button>
       </LinkContainer>
       <Topo />
+      <Icones />
       <Listagem />
-      <Cards />
       <Cards />
       <Footer />
     </Container>
