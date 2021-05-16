@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import Listagem from "./components/Listagem";
-import Cards from "./components/Card_experience";
-// import Experience from "./components/Experience";
-// import Experiences from "./components/Experiences  ";
+import React from "react";
+import HomePage from "./pages/HomePage/HomePage";
+
 function App() {
   return (
-    <Container className="container">
-      <Listagem />
-      <Cards />
-      <Cards />
-    </Container>
+   <HomePage/>
   );
 }
 

@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
 const Listagem = () => {
   return (
     <Container className="listagem">
