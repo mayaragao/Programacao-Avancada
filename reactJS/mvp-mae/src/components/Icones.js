@@ -8,7 +8,7 @@ import icone3 from "./images/icone3.svg";
 const Icones = () => {
   return (
     <>
-      <Container className="container">
+      <Container className="box-icones">
         <Row>
           <Col sm={4} md={4} lg={4} xl={4}>
             <div className="box-img-text">
