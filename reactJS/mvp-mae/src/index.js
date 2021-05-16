@@ -4,6 +4,7 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./pages/Login/Login";
+import AboutPage from "./pages/About/AboutPage";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +12,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/about" component={AboutPage} />
       </Switch>
     </Router>
   </React.StrictMode>,

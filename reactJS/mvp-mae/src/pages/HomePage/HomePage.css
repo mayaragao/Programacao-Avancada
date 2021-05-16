@@ -164,3 +164,6 @@
   border-radius: 3px;
   padding: 5px 20px;
 }
+.btn-green:hover {
+  background-color: #0b3d0d;
+}

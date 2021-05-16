@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 
 import imagemMae from "./images/mae_c_fio.png";
+import { LinkContainer } from "react-router-bootstrap";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -35,12 +36,9 @@ const Listagem = () => {
                 </li>
                 <br />
               </ul>
-              <button
-                className="btn-green ml-5"
-                onClick={() => console.log("Goes to the other page")}
-              >
-                Conhecer
-              </button>
+              <LinkContainer to="/about">
+                <button className="btn-green ml-5">Conhecer</button>
+              </LinkContainer>
             </div>
             {/* </Tab.Container> */}
           </Col>
