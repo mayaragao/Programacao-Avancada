@@ -17,15 +17,30 @@ const Listagem = () => {
             {/* <Tab.Container> */}
             <div className="maetext">
               <h3>Lorem, ipsum dolor.</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate delectus, beatae eos quisquam earum libero sunt veniam aliquid impedit recusandae!</p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptate delectus, beatae eos quisquam earum libero sunt veniam
+                aliquid impedit recusandae!
+              </p>
               <ul className="fa-ul">
                 <li>
                   <i className="fa fa-circle" aria-hidden="true"></i>
                   Lorem ipsum dolor sit amet consectetur.
                 </li>
+                <br />
                 <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+                <br />
+                <li>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                </li>
+                <br />
               </ul>
+              <button
+                className="btn-green ml-5"
+                onClick={() => console.log("Goes to the other page")}
+              >
+                Conhecer
+              </button>
             </div>
             {/* </Tab.Container> */}
           </Col>
