@@ -13,11 +13,7 @@ const Listagem = () => {
           {/* <Tab.Container> */}
           <div className="maetext">
             <h3>Lorem, ipsum dolor.</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-              delectus, beatae eos quisquam earum libero sunt veniam aliquid
-              impedit recusandae!
-            </p>
+            <p>Lorem dolor sit amet consectetur adipisicing elit. Voluptate delectus, beatae eos quisquam earum libero sunt veniam aliquid impedit recusandae!</p>
             <ul className="fa-ul">
               <li>
                 <i className="fa fa-circle" aria-hidden="true"></i>
