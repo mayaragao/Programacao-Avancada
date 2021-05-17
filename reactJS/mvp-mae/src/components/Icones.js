@@ -12,23 +12,23 @@ const Icones = () => {
         <Row>
           <Col sm={4} md={4} lg={4} xl={4}>
             <div className="box-img-text">
-              <img className="mt-2" alt="icone1" src={icone1} />
-              <h4 className="mt-2">Lorem ipsum</h4>
-              <p>Lorem ipsum dolor sit amet consectetur . Voluptate delectus, libero sunt veniam aliquid impedit recusandae amet consectetur .!</p>
+              <img className="mt-2" alt="icone1" src={icone2} />
+              <h4 className="mt-2">Atualize seu perfil</h4>
+              <p>Mantenha suas informaçoes atualizadas para encontrar familias com os mesmos gostos que o seu.</p>
             </div>
           </Col>
           <Col sm={4} md={4} lg={4} xl={4}>
             <div className="box-img-text">
-              <img className="mt-2" alt="icone2" src={icone2} />
-              <h4 className="mt-2">Lorem ipsum</h4>
-              <p>Lorem ipsum dolor sit amet consectetur . Voluptate delectus, libero sunt veniam aliquid impedit recusandae amet consectetur .!</p>
+              <img className="mt-2" alt="icone2" src={icone3} />
+              <h4 className="mt-2">Adicione uma experiencia</h4>
+              <p>Escreva uma dica ou descreva uma experiencia para novas pessoas te encontrar!</p>
             </div>
           </Col>
           <Col sm={4} md={4} lg={4} xl={4}>
             <div className="box-img-text">
-              <img className="mt-2" alt="icone3" src={icone3} />
-              <h4 className="mt-2">Lorem ipsum</h4>
-              <p>Lorem ipsum dolor sit amet consectetur . Voluptate delectus, libero sunt veniam aliquid impedit recusandae amet consectetur .!</p>
+              <img className="mt-2" alt="icone3" src={icone1} />
+              <h4 className="mt-2">Curta ou comente</h4>
+              <p>Se encontrar uma experiencia interessante, deixe sua opnião, cada ponto de vista é importante!</p>
             </div>
           </Col>
         </Row>
