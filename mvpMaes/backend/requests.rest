@@ -11,8 +11,8 @@ POST http://localhost:4000/experiencias/add HTTP/1.1
 content-type: application/json
 
 {
-    "username": "manuela",
-    "description": "Eu adoro cuidar dos meus bebes"
+    "username": "bernardinho",
+    "description": "Eu adoro jogar futebol com meus filhos"
 }
 
 ### Buscar todas experiencias
@@ -23,9 +23,9 @@ POST http://localhost:4000/experiencias/comment HTTP/1.1
 content-type: application/json
 
 {
-    "_id":"60a1f781f7e744218c8916bd",
-    "username": "bernardinho",
-    "description": "Show manu, manda muuitoo"
+    "_id":"60a2de691a7805003ddd30e3",
+    "username": "manuela",
+    "description": "Show bernardinho, manda muuitoo"
 }
 
 ### Dar like em experiência
@@ -33,5 +33,13 @@ POST http://localhost:4000/experiencias/like HTTP/1.1
 content-type: application/json
 
 {
-    "_id":"60a1f781f7e744218c8916bd"
+    "_id":"60a2de691a7805003ddd30e3"
+}
+
+### Pegar quantidade de likes de uma experiencia
+GET http://localhost:4000/experiencias/getexperiencialikes HTTP/1.1
+content-type: application/json
+
+{
+    "_id":"60a2de691a7805003ddd30e3"
 }

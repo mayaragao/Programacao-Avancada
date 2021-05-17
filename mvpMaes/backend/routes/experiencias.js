@@ -10,6 +10,7 @@ router.route('/').get((req, res) => {
 
 //Adiciona experiencia
 router.route('/add').post((req, res) => {
+  console.log("Add exp called")
   const username = req.body.username;
   const description = req.body.description;
   const newExperiencia = new Experiencia({username, description, numLikes: 0});
@@ -31,18 +32,30 @@ router.route('/comment').post((req, res) => {
   });
 
 //Dá like em uma experiencia
+
+function aumentaLike(id_experiencia, qtd, res) {
+  Experiencia.findByIdAndUpdate(id_experiencia, {"$set":{"numLikes":qtd + 1}})
+  .then(() => res.status(201).json('message: success'))
+  .catch(err => res.status(400).json(`Error: Something went wrong with your request. ${err}`));
+}
+
 router.route('/like').post((req, res) => {
     const id_experiencia = req.body._id;
-    console.log(`ìd: ${id_experiencia}`);
-    let numLikes = 0
+    console.log(`ìd: ${id_experiencia}`);    
     Experiencia.findById(id_experiencia)
-        .then((experiencia) => numLikes = experiencia.numLikes)
-        .catch(err => res.status(400).json('Error: Something went wrong with your request.')); 
-    console.log(numLikes);
-  
-    Experiencia.findByIdAndUpdate(id_experiencia, {"$set":{"numLikes":numLikes + 1}})
-    .then(() => res.status(201).json('message: success'))
-    .catch(err => res.status(400).json(`Error: Something went wrong with your request. ${err}`));
+        .then((experiencia) => aumentaLike(id_experiencia, experiencia.numLikes, res))        
+        .catch(err => res.status(400).json('Error: Something went wrong with your request.'));
+  });
+
+router.route('/getexperiencialikes').get((req, res) => {
+    const id_experiencia = req.body._id;
+    console.log(`ìd: ${id_experiencia}`);    
+    Experiencia.findById(id_experiencia)
+        .then((experiencia) => {
+          console.log(`Qtd de likes da experiência: ${experiencia.numLikes}`);
+          res.status(200).json(experiencia)
+        })        
+        .catch(err => res.status(400).json('Error: Something went wrong with your request.'));
   });
 
 module.exports = router;
