@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Cards = (props) => {
   return (
-    <Container className="card-container mb-4 mt-4">
+    <Container className="card-container">
       <CardDeck>
         <Card className="cardzin mt-4">
           <Card.Body>
