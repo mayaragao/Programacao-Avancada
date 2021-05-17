@@ -9,5 +9,4 @@ WORKDIR /mvpMaes/backend
 RUN npm install && npm audit fix
 WORKDIR /
 RUN touch app.logs
-RUN chmod +x appstart.sh
 CMD (npm start --prefix /mvpMaes/backend &) && (npm start --prefix /mvpMaes/frontend &) && tail -f app.logs
