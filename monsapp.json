@@ -25,7 +25,6 @@
  "name_usuario_child": "", 
  "description": "",
  "comments": [{"name_usuario": "", "description": ""}, {"name_usuario": "", "description": ""}, ],  //Uma lista com os comentários
- "likes": 12 //quantidade de likes 
-
+ "likes": 12 //quantidade de likes
 }
 
