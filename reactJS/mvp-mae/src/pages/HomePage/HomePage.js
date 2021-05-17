@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, RightContainer, LeftContainer, Title, Button, InlineButton } from "../styles";
+
 import Listagem from "../../components/Listagem";
 import Cards from "../../components/Card_experience";
 import Topo from "../../components/Topo";

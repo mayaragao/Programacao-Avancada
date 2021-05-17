@@ -17,11 +17,7 @@ const Topo = () => {
           <h1>Mom's Help</h1>
 
           <br />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            delectus, beatae eos quisquam earum libero sunt veniam aliquid
-            impedit recusandae!
-          </p>
+          <p>Olá mãe, aqui voce pode se conectar a outras famílias, trocar experiencias, descobrir novas dicas e conversar!</p>
         </div>
         <img className="imgtopo" alt="img_topo" src={imagemTopo} />
       </div>

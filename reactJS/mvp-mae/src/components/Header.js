@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+//import { Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
@@ -7,9 +7,7 @@ const Header = () => {
     <header style={{ background: "#90ab9b" }}>
       <nav className="row-header">
         <LinkContainer to="/login">
-          <Button className="btn-entrar" variant="outline-dark">
-            Entrar
-          </Button>
+          <button className="btn-entrar">Entrar</button>
         </LinkContainer>
       </nav>
     </header>
