@@ -80,8 +80,8 @@ const Cards = (props) => {
               mae do Backend
             </Card.Subtitle>
             <Card.Text>
-              A aplicacao superiou minhas expectativas. Entretanto, ha muitos
-              anuncios de fraldas a 40 reais, assim nao da.
+              A aplicação superou minhas expectativas. Entretanto, há muitos
+              anúncios de fraldas a 40 reais, assim não dá.
             </Card.Text>
           </Card.Body>
         </Card>
