@@ -19,7 +19,7 @@ function AuthProvider({children}){
     },[])
 
     function handleLogin () {
-        const {data: {token}} = api.post('authenticate');
+        const {data: {token}} = api.post('auth/login');
         localStorage.setItem('token'.JSON.stringify(token));
         api.defaults.headers.Authorization = `Bearer ${token}`;
         setAuthenticated(true);

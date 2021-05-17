@@ -1,29 +1,25 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
+import api from "../../api"
 import { Container, Row, Col, Card, Form } from "react-bootstrap";
 import { Header, Button, ButtonContainer } from "./styles";
 import "./Experiences.css";
 
-class ExperiencesPage extends Component {
-  constructor(props) {
-    super(props);
+const ExperiencesPage = () => {
+  const [experiences, setExperiences] = useState({});
+ 
+  useEffect(() => {
+    api.get("/experiencias/")
+    .then((response) => setExperiences(response.data))
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+   });
 
-    this.ComentExperience = this.ComentExperience.bind(this);
-    this.CancelComentExperience = this.CancelComentExperience.bind(this);
-  }
+  }, []);
 
-  ComentExperience(key) {
-    var formId = "formComent" + key.toString();
-    document.getElementById(formId).classList.remove("d-none");
-  }
+  console.log(experiences);
 
-  CancelComentExperience(key) {
-    var formId = "formComent" + key.toString();
-    document.getElementById(formId).classList.add("d-none");
-  }
-
-  render() {
-    const data = [
+   const data = [
       {
         name_usuario: "Ana Canto",
         name_usuario_child: "Laura",
@@ -78,7 +74,7 @@ class ExperiencesPage extends Component {
           <Row>
             {data.map((experience, i) => (
               <Col xs>
-                <Card key={i} classname="card" style={{ width: "28vw" }}>
+                <Card key={i} className="card" style={{ width: "28vw" }}>
                   <Card.Body>
                     <Card.Title>{experience.name_usuario}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Mãe da {experience.name_usuario_child}</Card.Subtitle>
@@ -125,6 +121,6 @@ class ExperiencesPage extends Component {
       </div>
     );
   }
-}
+
 
 export default ExperiencesPage;
