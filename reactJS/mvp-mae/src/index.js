@@ -1,24 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LoginPage from "./pages/Login/Login";
-import ExperiencesPage from "./pages/Experiences/Experiences";
-import RegisterPage from "./pages/Register/Register";
-import ExperienceRegisterPage from "./pages/ExperienceRegister/ExperienceRegister";
+import Routes from "./Routes";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/experiencias" component={ExperiencesPage} />
-        <Route path="/cadastro" component={RegisterPage} />
-        <Route path="/cadastrarExperiencia" component={ExperienceRegisterPage} />
-      </Switch>
-    </Router>
+   <Routes/>
   </React.StrictMode>,
   document.getElementById("root")
 );
