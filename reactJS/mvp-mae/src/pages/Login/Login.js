@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Row, Col, Form } from "react-bootstrap";
+import { Context} from '../../context/AuthContext'
 import LoginImage from "../../assets/images/login_image.svg";
 import {
   Container,
@@ -12,6 +13,9 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 
 const LoginPage = () => {
+  const { authenticated, handleLogin } = useContext(Context);
+  console.log(authenticated);
+
   return (
     <Container>
       <Row>
@@ -26,9 +30,8 @@ const LoginPage = () => {
                 <Form.Control type="password" placeholder="Senha" />
               </Form.Group>
             </Form>
-            <LinkContainer to="/experiencias">
-              <Button>Entrar</Button>
-            </LinkContainer>
+           
+              <Button onClick={handleLogin}>Entrar</Button>
             <LinkContainer to="/cadastro">
               <InlineButton>
                 Ainda não possui cadastro? Cadastre-se
