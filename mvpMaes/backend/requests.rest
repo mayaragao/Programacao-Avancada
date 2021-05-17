@@ -5,3 +5,33 @@ content-type: application/json
     "name": "sample",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
 }
+
+### Adicionar experiencia
+POST http://localhost:4000/experiencias/add HTTP/1.1
+content-type: application/json
+
+{
+    "username": "manuela",
+    "description": "Eu adoro cuidar dos meus bebes"
+}
+
+### Buscar todas experiencias
+GET http://localhost:4000/experiencias HTTP/1.1
+
+### Comentar experiencias
+POST http://localhost:4000/experiencias/comment HTTP/1.1
+content-type: application/json
+
+{
+    "_id":"60a1f781f7e744218c8916bd",
+    "username": "bernardinho",
+    "description": "Show manu, manda muuitoo"
+}
+
+### Dar like em experiência
+POST http://localhost:4000/experiencias/like HTTP/1.1
+content-type: application/json
+
+{
+    "_id":"60a1f781f7e744218c8916bd"
+}
