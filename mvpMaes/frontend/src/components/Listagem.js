@@ -34,14 +34,3 @@ const Listagem = () => {
 };
 
 export default Listagem;
-
-{
-  /* <span className="listagemtext">
-  <h3>Lorem, ipsum dolor.</h3>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-    delectus, beatae eos quisquam earum libero sunt veniam aliquid
-    impedit recusandae!
-  </p>
-</span> */
-}

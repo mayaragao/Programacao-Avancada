@@ -4,13 +4,11 @@ import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
   return (
-    <header style={{ background: "#90ab9b" }}>
-      {/*<nav className="row-header">*/}
+    <div style={{ background: "#90ab9b" }}>
       <LinkContainer to="/login">
         <button className="btn-entrar">Entrar</button>
       </LinkContainer>
-      {/*</nav>*/}
-    </header>
+    </div>
   );
 };
 

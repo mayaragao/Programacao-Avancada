@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 
 import Header from "./Header";
-
 import imagemTopo from "./images/iconeTopo.svg";
 
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
