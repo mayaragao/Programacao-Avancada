@@ -60,7 +60,7 @@ router.route('/login').post((req, res) => {
         })
         .catch((e)=>{
             console.log(e)
-            res.status(500).send('Something went wrong!')
+            res.status(500).send('Not Allowed')
         })  
  
   });

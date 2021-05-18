@@ -1,18 +1,10 @@
-GET http://localhost:4000/users HTTP/1.1
-content-type: application/json
-
-{
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
-}
-
 ### Adicionar experiencia
 POST http://localhost:4000/experiencias/add HTTP/1.1
 content-type: application/json
 
 {
-    "username": "bernardinho",
-    "description": "Eu adoro jogar futebol com meus filhos"
+    "username": "Manel",
+    "description": "Eu adoro jogar volei com meus filhos"
 }
 
 ### Buscar todas experiencias
@@ -23,9 +15,9 @@ POST http://localhost:4000/experiencias/comment HTTP/1.1
 content-type: application/json
 
 {
-    "_id":"60a2de691a7805003ddd30e3",
+    "_id":"60a311406c13aa0d85e7a875",
     "username": "manuela",
-    "description": "Show bernardinho, manda muuitoo"
+    "description": "Show Manel, manda muuitoo"
 }
 
 ### Dar like em experiência
@@ -33,7 +25,7 @@ POST http://localhost:4000/experiencias/like HTTP/1.1
 content-type: application/json
 
 {
-    "_id":"60a2de691a7805003ddd30e3"
+    "_id":"60a311406c13aa0d85e7a875"
 }
 
 ### Pegar quantidade de likes de uma experiencia
@@ -41,7 +33,7 @@ GET http://localhost:4000/experiencias/getexperiencialikes HTTP/1.1
 content-type: application/json
 
 {
-    "_id":"60a2de691a7805003ddd30e3"
+    "_id":"60a311406c13aa0d85e7a875"
 }
 
 ### Testing AUTH Routes
@@ -51,8 +43,8 @@ POST http://localhost:4000/auth/register HTTP/1.1
 content-type: application/json
 
 {
-    "username":"Rolo",
-    "password":"aufwiderzieham"
+    "username":"Ash",
+    "password":"pikachu"
 }
 
 ### Login
@@ -60,13 +52,12 @@ POST http://localhost:4000/auth/login HTTP/1.1
 content-type: application/json
 
 {
-    "username":"Rolo",
-    "password":"aufwiderzieham"
+    "username":"Ash",
+    "password":"pikachu"
 }
 
 ### Retrieve user from cookie
 GET http://localhost:4000/auth/user HTTP/1.1
-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlJvbG8iLCJpYXQiOjE2MjEyOTc4NzEsImV4cCI6MTYyMTI5OTY3MX0.84Q5rYvp_GQqO_4W18TsWzWphO3MApsaj5LmaNoofhY;
 
 ### Logout
 POST http://localhost:4000/auth/logout HTTP/1.1
