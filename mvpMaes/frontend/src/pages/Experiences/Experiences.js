@@ -1,9 +1,8 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component} from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { Container, Row, Col, Card, Form, CardColumns } from "react-bootstrap";
+import { Container, Row,  Card, Form, CardColumns } from "react-bootstrap";
 import { Header, Button, ButtonContainer } from "./styles";
 import "./Experiences.css";
-
 import ExperienceService from "../../services/experienceService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCommentDots } from "@fortawesome/free-regular-svg-icons";
@@ -62,45 +61,6 @@ class ExperiencesPage extends Component {
     } catch (err_experiences) {
       console.log(err_experiences);
     }
-
-    /*
-
-    const data = [
-      {
-        name_usuario: "Ana Canto",
-        name_usuario_child: "Laura",
-        description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-        comments: [
-          { name_usuario: "Leonardo", description: "Sed ultrices risus eget iaculis luctus. Mauris vel gravida magna." },
-          { name_usuario: "Luana", description: "Sed ultrices risus Mauris vel gravida magna." },
-        ], //Uma lista com os comentários
-        likes: 12, //quantidade de likes
-      },
-      {
-        name_usuario: "Ana Canto",
-        name_usuario_child: "Laura",
-        description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-        comments: [
-          { name_usuario: "", description: "" },
-          { name_usuario: "", description: "" },
-        ], //Uma lista com os comentários
-        likes: 12, //quantidade de likes
-      },
-    ];
-
-    for (const [idx, obj] of data.entries()) {
-      data_experience = {
-        _id: idx,
-        username: obj.name_usuario,
-        name_usuario_child: obj.name_usuario_child,
-        description: obj.description,
-        numLikes: obj.likes,
-        comments: obj.comments,
-      };
-
-      list_experiences.push(data_experience);
-    }
-   */
 
     this.setState({ list_experiences: list_experiences });
 

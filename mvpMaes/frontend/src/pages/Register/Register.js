@@ -1,5 +1,7 @@
-import React from "react";
+import React , {useState} from "react";
 import {  Row, Col, Form } from "react-bootstrap";
+import api from "../../api"
+import history from '../../history';
 import LoginImage from "../../assets/images/login_image.svg";
 import {
   Container,
@@ -12,42 +14,35 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 
 const RegisterPage = () => {
+const [state, setState] = useState({
+  username:"",  
+  password: "",
+  });
+  
+  const submit = () => {
+    try{    
+      api.post("auth/register", state);
+      history.push('login');
+    }catch{
+      console.log("Problema ao registrar requisição.")
+    }
+  }
+  
   return (
     <Container>
       <Row>
         <Col>
           <LeftContainer>
             <Title>CADASTRO</Title>
-            <Form>
-              <Form.Group controlId="formGroupName">
-                <Form.Control type="name" placeholder="Nome" />
-              </Form.Group>
-              <Form.Group controlId="formGroupSurname">
-                <Form.Control type="surname" placeholder="Sobrenome" />
-              </Form.Group>
+            <Form onSubmit={submit}>
               <Form.Group controlId="formGroupEmail">
-                <Form.Control type="email" placeholder="E-mail" />
-              </Form.Group>
-              <Form.Group controlId="formGroupCity">
-                <Form.Control type="city" placeholder="Cidade" />
-              </Form.Group>
-              <Form.Group controlId="formGroupSun">
-                <Form.Control type="sun" placeholder="Nome do seu filho(a)" />
-              </Form.Group>
+                <Form.Control type="E-mail" placeholder="E-mail" value={state.username} onChange={(e) => setState({username: e.target.value})} />
+              </Form.Group>              
               <Form.Group controlId="formGroupPassword">
-              <Row>
-                <Col>
-                <Form.Control placeholder="Senha" />
-                </Col>
-                <Col>
-                <Form.Control placeholder="Repetir Senha" />
-                </Col>
-              </Row>
-              </Form.Group>
-            </Form>
-            <LinkContainer to="/experiencias">
-              <Button>Cadastrar</Button>
-            </LinkContainer>
+                <Form.Control type="password" placeholder="Senha" value={state.password} onChange={(e) => setState({password: e.target.value})} />
+              </Form.Group>             
+              <Button>Cadastrar</Button>         
+            </Form>            
             <LinkContainer to="/login">
               <InlineButton>
                 Já possui cadastro? Entre aqui.

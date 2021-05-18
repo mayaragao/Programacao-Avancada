@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import ExperienceImage from "../../assets/images/experience_register_image.svg";
-import { Container, RightContainer, LeftContainer, Title, Button, InlineButton } from "../styles";
+import { Container, RightContainer, LeftContainer, Title, Button } from "../styles";
 import { LinkContainer } from "react-router-bootstrap";
 
 import ExperienceService from "../../services/experienceService";
 
-import history from "../../history";
 
 class ExperienceRegisterPage extends Component {
   constructor(props) {

@@ -1,6 +1,7 @@
-import React, {useContext} from "react";
+import React, {useState} from "react";
 import { Row, Col, Form } from "react-bootstrap";
-import { Context} from '../../context/AuthContext'
+import api from "../../api"
+import history from '../../history';
 import LoginImage from "../../assets/images/login_image.svg";
 import {
   Container,
@@ -13,8 +14,21 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 
 const LoginPage = () => {
-  const { authenticated, handleLogin } = useContext(Context);
-  console.log(authenticated);
+  const [state, setState] = useState({
+    username:"",  
+    password: "",
+    });
+
+    const submit = () => {
+      try{    
+        api.post("auth/login", state);
+        const token = api.get("auth/user");
+        console.log(token);
+        history.push('experiencias');
+      }catch{
+        console.log("Problema ao registrar requisição.")
+      }
+    }      
 
   return (
     <Container>
@@ -22,16 +36,15 @@ const LoginPage = () => {
         <Col>
           <LeftContainer>
             <Title>LOGIN</Title>
-            <Form>
+            <Form onSubmit={submit} >
               <Form.Group controlId="formGroupEmail">
-                <Form.Control type="email" placeholder="E-mail" />
+                <Form.Control type="name" placeholder="E-mail" value={state.username} onChange={(e) => setState({username: e.target.value})}/>
               </Form.Group>
               <Form.Group controlId="formGroupPassword">
-                <Form.Control type="password" placeholder="Senha" />
-              </Form.Group>
-            </Form>
-           
-              <Button onClick={handleLogin}>Entrar</Button>
+                <Form.Control type="password" placeholder="Senha" value={state.password} onChange={(e) => setState({password: e.target.value})}/>
+              </Form.Group>     
+              <Button >Entrar</Button>              
+            </Form>              
             <LinkContainer to="/cadastro">
               <InlineButton>
                 Ainda não possui cadastro? Cadastre-se
