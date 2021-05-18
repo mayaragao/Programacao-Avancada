@@ -32,7 +32,6 @@ router.route('/comment').post((req, res) => {
   });
 
 //Dá like em uma experiencia
-
 function aumentaLike(id_experiencia, qtd, res) {
   Experiencia.findByIdAndUpdate(id_experiencia, {"$set":{"numLikes":qtd + 1}})
   .then(() => res.status(201).json('message: success'))
@@ -47,6 +46,7 @@ router.route('/like').post((req, res) => {
         .catch(err => res.status(400).json('Error: Something went wrong with your request.'));
   });
 
+//Busca experiencia dado o ID da experiencia
 router.route('/getexperiencialikes').get((req, res) => {
     const id_experiencia = req.body._id;
     console.log(`ìd: ${id_experiencia}`);    
