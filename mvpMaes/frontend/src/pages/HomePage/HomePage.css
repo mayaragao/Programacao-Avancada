@@ -113,6 +113,10 @@
 }
 
 .card-container {
+  /*
+  justify-content: center;
+  align-content: center;
+  */
   position: relative;
   margin: auto;
 }
@@ -190,7 +194,7 @@
 }
 
 .imgtopo {
-  padding-top: 5vw;
+  padding-top: 15vh;
   margin-right: 4vw;
   width: 35vw;
 }
@@ -214,11 +218,15 @@
   border-color: #ffffff;
   padding: 5px 30px;
   margin-top: 5vh;
-  margin-left: 50vw;
+  margin-right: 10vw;
+  margin-bottom: 10vh;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .btn-entrar:hover {
-  background: #0b3d0d;
+  background: #61ba85;
 }
 
 .btn-green {
@@ -233,5 +241,5 @@
   margin-right: 20vw;
 }
 .btn-green:hover {
-  background-color: #0b3d0d;
+  background-color: #61ba85;
 }
