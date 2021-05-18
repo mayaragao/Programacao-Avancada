@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 //Import our user model
 let User = require('../models/user.model');
@@ -19,12 +20,10 @@ router.route('/register').post(async (req,res) => {
     const UserName = req.body.username
     const password = req.body.password
     const city = req.body.city
-    const email = req.body.email
-    const idade = req.body.idade
     const hashedPassword = await bcrypt.hash(password, 10)
-    const newUser = new User({username:UserName,password:hashedPassword,city:city,email:email,idade:idade})
+    const newUser = new User({username:UserName,password:hashedPassword,city:city})
     newUser.save()
-        .then(()=> res.json('User added!'))
+        .then(()=> res.json({message: "success"}))
         .catch(err => res.status(400).json('Error' + err))
 })
 
@@ -69,23 +68,26 @@ router.route('/login').post((req, res) => {
 router.get('/user', async (req, res) => {
     try {
         const cookie = req.cookies['jwt']
+        console.log(`my cookie: ${cookie}`)
 
-        const claims = jwt.verify(cookie, process.env.ACCESS_TOKEN_SECRET)
-
-        if (!claims) {
-            return res.status(401).send({
-                message: 'unauthenticated'
-            })
-        }
-
-        const user = await User.findOne({ username: req.body.username })
-
-        const {password, ...data} = await user.toJSON()
-
-        res.send(data)
-    } catch (e) {
-        return res.status(401).send({
+        const claims = jwt.verify(cookie, process.env.ACCESS_TOKEN_SECRET, async (err, user)=> {
+          console.log(`The error was: ${err}`);
+          if (err) return res.status(401).send({
             message: 'unauthenticated'
+          })
+          User.findOne({ username: user.username })
+            .then((user) => {
+              const { username, ...data } = user          
+              console.log(`My data is : ${JSON.stringify(data)}`)
+              res.status(200).json({username, message: "success"})
+            })
+            .catch((e)=> {return console.log(e)})          
+        })
+
+    } catch (e) {
+        console.log(`Error outside was ${e}`)
+        return res.status(401).send({
+            message: 'not authenticated'
         })
     }
 })

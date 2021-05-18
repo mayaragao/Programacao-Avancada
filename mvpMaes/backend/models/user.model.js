@@ -17,15 +17,7 @@ const userSchema = new Schema({
 },
   city: {
       type: String,
-      required: true
-  },
-  email: {
-      type: String,
-      required: true
-  },
-  idade: {
-      type: Number,
-      required: true
+      required: false
   },
 }, {
   timestamps: true,
