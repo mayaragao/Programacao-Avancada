@@ -16,7 +16,11 @@ const Listagem = () => {
             {/* <Tab.Container> */}
             <div className="maetext">
               <h3>Mãe, nós te acolhemos</h3>
-              <p>Aqui voce pode encontrar muitas experiencias e dicas sobre o maternar. Encontre familias e iteraja com novas pessoas e modos de pensar!</p>
+              <p>
+                Aqui voce pode encontrar muitas experiencias e dicas sobre o
+                maternar. Encontre familias e iteraja com novas pessoas e modos
+                de pensar!
+              </p>
               <ul>
                 <li>Adicione Experiencias</li>
                 <li>Curta e compartilhe</li>

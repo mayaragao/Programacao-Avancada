@@ -4,7 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
   return (
-    <div style={{ background: "#90ab9b" }}>
+    <div id="divHeader" style={{ background: "#90ab9b" }}>
       <LinkContainer to="/login">
         <button className="btn-entrar">Entrar</button>
       </LinkContainer>

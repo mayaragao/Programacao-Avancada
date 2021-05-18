@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.div`
   width: 100vw;
-  height: 6vw; 
+  height: 6vw;
   background-color: #90ab9b;
 `;
 
@@ -18,7 +18,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonContainer = styled.div`
-    display: flex;
-    flex-direction:row-reverse;
-    padding-right: 5vw;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 5vw;
 `;

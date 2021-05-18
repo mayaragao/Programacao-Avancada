@@ -1,5 +1,17 @@
 import React, { Component, useEffect, useState } from "react";
-import { Row, Col, Alert, Button, OverlayTrigger, Tooltip, Table, Tab, Card, CardDeck, Container } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Alert,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+  Table,
+  Tab,
+  Card,
+  CardDeck,
+  Container,
+} from "react-bootstrap";
 
 import ExperienceService from "../services/experienceService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,7 +63,10 @@ class Cards extends Component {
       console.log(err_experiences);
     }
 
-    this.setState({ card_experiences1: list_experiences1, card_experiences2: list_experiences2 });
+    this.setState({
+      card_experiences1: list_experiences1,
+      card_experiences2: list_experiences2,
+    });
   }
 
   render() {
@@ -62,10 +77,15 @@ class Cards extends Component {
             <Card className="cardzin mt-4">
               <Card.Body>
                 <Card.Title>
-                  {experience.username} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {experience.username}{" "}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <small>
                     {experience.numLikes}&nbsp;
-                    <FontAwesomeIcon icon={faHeart} size="sm" />
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      style={{ color: "#f8b73b" }}
+                      size="sm"
+                    />
                   </small>{" "}
                 </Card.Title>
                 <Card.Text>{experience.description}</Card.Text>
@@ -79,7 +99,8 @@ class Cards extends Component {
             <Card className="cardzin mt-4">
               <Card.Body>
                 <Card.Title>
-                  {experience.username} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  {experience.username}{" "}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <small>
                     {experience.numLikes}&nbsp;
                     <FontAwesomeIcon icon={faHeart} size="sm" />

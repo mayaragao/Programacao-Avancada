@@ -218,8 +218,8 @@
   border-color: #ffffff;
   padding: 5px 30px;
   margin-top: 5vh;
-  margin-right: 10vw;
   margin-bottom: 10vh;
+  margin-right: 5%;
   position: absolute;
   top: 0;
   right: 0;
@@ -242,4 +242,7 @@
 }
 .btn-green:hover {
   background-color: #61ba85;
+}
+#divHeader {
+  position: relative;
 }

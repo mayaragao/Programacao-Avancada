@@ -1,6 +1,6 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { Container, Row,  Card, Form, CardColumns } from "react-bootstrap";
+import { Container, Row, Card, Form, CardColumns } from "react-bootstrap";
 import { Header, Button, ButtonContainer } from "./styles";
 import "./Experiences.css";
 import ExperienceService from "../../services/experienceService";
@@ -32,7 +32,9 @@ class ExperiencesPage extends Component {
     };
 
     try {
-      const response_experiences = await ExperienceService.likeExperience(data_like_experience);
+      const response_experiences = await ExperienceService.likeExperience(
+        data_like_experience
+      );
       console.log("like", response_experiences);
     } catch (err_like_experience) {
       console.log(err_like_experience);
@@ -81,7 +83,8 @@ class ExperiencesPage extends Component {
     };
 
     try {
-      const response_comment_experiences = await ExperienceService.commentExperience(data_comment_experience);
+      const response_comment_experiences =
+        await ExperienceService.commentExperience(data_comment_experience);
       console.log("comment", response_comment_experiences);
     } catch (err_comment_experience) {
       console.log(err_comment_experience);
@@ -127,27 +130,61 @@ class ExperiencesPage extends Component {
                     {/*
                     <Card.Subtitle className="mb-2 text-muted">Mãe da {experience.name_usuario_child}</Card.Subtitle>
                      */}
-                    <Card.Text className="text-muted">{experience.description}</Card.Text>
-                    <Card.Link className="like" onClick={() => this.likeExperience(experience._id)}>
+                    <Card.Text className="text-muted">
+                      {experience.description}
+                    </Card.Text>
+                    <Card.Link
+                      className="like"
+                      onClick={() => this.likeExperience(experience._id)}
+                    >
                       {experience.numLikes}&nbsp;&nbsp;
-                      <FontAwesomeIcon icon={faHeart} size="lg" />
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        style={{ cursor: "pointer" }}
+                        size="lg"
+                      />
                       {/* 
                       <Card.Link className="like" href="#">  <i class="far fa-heart"></i> Curtir*/}
                     </Card.Link>
-                    <Card.Link className="like" onClick={() => this.ComentExperience(i)}>
-                      <FontAwesomeIcon icon={faCommentDots} size="lg" />
+                    <Card.Link
+                      className="like"
+                      onClick={() => this.ComentExperience(i)}
+                    >
+                      <FontAwesomeIcon
+                        icon={faCommentDots}
+                        size="lg"
+                        style={{ cursor: "pointer" }}
+                      />
                       {/* <i class="far fa-comment-dots"></i> Comentar */}
                     </Card.Link>
 
                     <div style={{ marginTop: "10px" }}>
                       <Form>
-                        <Form.Group id={"formComent" + i} controlId={"formGroupComentExperience" + i} className=" d-none">
-                          <Form.Control id={"formTextComent" + i} as="textarea" rows={3} />
+                        <Form.Group
+                          id={"formComent" + i}
+                          controlId={"formGroupComentExperience" + i}
+                          className=" d-none"
+                        >
+                          <Form.Control
+                            id={"formTextComent" + i}
+                            as="textarea"
+                            rows={3}
+                          />
                           <div style={{ marginLeft: "60%" }}>
-                            <Card.Link className="like" onClick={() => this.CancelComentExperience(i)}>
+                            <Card.Link
+                              className="like"
+                              onClick={() => this.CancelComentExperience(i)}
+                              style={{ cursor: "pointer" }}
+                            >
                               Cancelar
                             </Card.Link>
-                            <Card.Link className="like" onClick={() => this.SaveComment(i, experience._id)}>
+                            <Card.Link
+                              className="like"
+                              onClick={() =>
+                                this.SaveComment(i, experience._id)
+                              }
+                              style={{ cursor: "pointer" }}
+                            >
                               Salvar
                             </Card.Link>
                           </div>
@@ -156,11 +193,18 @@ class ExperiencesPage extends Component {
                     </div>
 
                     {Object.keys(experience.comments).length !== 0 ? (
-                      <div className="ExperienceComents" style={{ marginLeft: "1vw", marginTop: "1vh" }}>
+                      <div
+                        className="ExperienceComents"
+                        style={{ marginLeft: "1vw", marginTop: "1vh" }}
+                      >
                         {experience.comments.map((comment, c) => (
                           <>
-                            <Card.Subtitle className="mt-1 text-muted">{comment.username}</Card.Subtitle>
-                            <Card.Text className="text-muted">{comment.description}</Card.Text>
+                            <Card.Subtitle className="mt-1 text-muted">
+                              {comment.username}
+                            </Card.Subtitle>
+                            <Card.Text className="text-muted">
+                              {comment.description}
+                            </Card.Text>
                           </>
                         ))}
                       </div>
