@@ -34,14 +34,16 @@ class Cards extends Component {
   }
 
   async SearchExperiences() {
-    var list_experiences1 = [];
-    var list_experiences2 = [];
+    // var list_experiences1 = [];
+    // var list_experiences2 = [];
     var data_experience = null;
+    var listToBeSorted = [];
 
     try {
       const response_experiences = await ExperienceService.getExperiences();
       console.log("conseguiu!", response_experiences);
-      for (const [idx, obj] of response_experiences.data.entries()) {
+
+      for (const obj of response_experiences.data.splice(0, 20)) {
         data_experience = {
           _id: obj._id,
           username: obj.username,
@@ -50,15 +52,26 @@ class Cards extends Component {
           numLikes: obj.numLikes,
           comments: obj.comments,
         };
+        listToBeSorted.push(data_experience);
 
-        if (idx < 3) {
-          list_experiences1.push(data_experience);
-        } else if (idx < 6) {
-          list_experiences2.push(data_experience);
-        } else {
-          break;
-        }
+        //   if (idx < 3) {
+        //     list_experiences1.push(data_experience);
+        //   } else if (idx < 6) {
+        //     list_experiences2.push(data_experience);
+        //   } else {
+        //     break;
+        //   }
       }
+      console.log(data_experience);
+      let sortedExperiences = listToBeSorted.sort(
+        ({ numLikes: data1 }, { numLikes: data2 }) => {
+          if (data1 < data2) return 1;
+          if (data1 > data2) return -1;
+          return 0;
+        }
+      );
+      var list_experiences1 = sortedExperiences.splice(0, 3);
+      var list_experiences2 = sortedExperiences.splice(0, 3);
     } catch (err_experiences) {
       console.log(err_experiences);
     }
@@ -103,7 +116,11 @@ class Cards extends Component {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <small>
                     {experience.numLikes}&nbsp;
-                    <FontAwesomeIcon icon={faHeart} size="sm" />
+                    <FontAwesomeIcon
+                      icon={faHeart}
+                      size="sm"
+                      style={{ color: "#f8b73b" }}
+                    />
                   </small>{" "}
                 </Card.Title>
                 <Card.Text>{experience.description}</Card.Text>
