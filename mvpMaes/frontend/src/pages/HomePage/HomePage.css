@@ -125,6 +125,7 @@
   padding-top: 13%;
   margin-left: 10vw;
   margin-right: 5vw;
+  position: relative;
 }
 .maetext ul {
   text-align: center;
@@ -236,9 +237,9 @@
   border: 2px;
   border-radius: 3px;
   padding: 5px 20px;
-  margin-top: 5vh;
-  margin-left: 10vw;
-  margin-right: 20vw;
+  margin-top: 10%;
+  margin-left: 43.5%;
+  position: absolute;
 }
 .btn-green:hover {
   background-color: #61ba85;
