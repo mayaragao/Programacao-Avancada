@@ -26,12 +26,14 @@ connection.once('open', () => {
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const experienciasRouter = require('./routes/experiencias');
-const aexperienciasRouter = require('./routes/aexperiencias')
+const aexperienciasRouter = require('./routes/aexperiencias');
+const images = require('./routes/images');
 
 //app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/experiencias', experienciasRouter);
 app.use('/aexperiencias', authenticateToken, aexperienciasRouter)
+app.use('/images', images)
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
