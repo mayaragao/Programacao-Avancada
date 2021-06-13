@@ -33,7 +33,7 @@ const images = require('./routes/images');
 app.use('/auth', authRouter);
 app.use('/experiencias', experienciasRouter);
 app.use('/aexperiencias', authenticateToken, aexperienciasRouter)
-app.use('/images', images)
+app.use('/images', authenticateToken, images)
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
