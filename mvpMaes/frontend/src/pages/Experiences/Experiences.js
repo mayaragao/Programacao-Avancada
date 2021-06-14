@@ -6,7 +6,7 @@ import "./Experiences.css";
 import ExperienceService from "../../services/experienceService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCommentDots } from "@fortawesome/free-regular-svg-icons";
-
+import api from "../../api";
 class ExperiencesPage extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +44,8 @@ class ExperiencesPage extends Component {
   }
 
   async SearchExperiences() {
+    const token = await api.get("auth/user");
+    console.log(`token is :${token}`);
     var list_experiences = [];
     var data_experience = null;
     try {
