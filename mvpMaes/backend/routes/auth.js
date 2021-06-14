@@ -56,6 +56,7 @@ router.route("/login").post((req, res) => {
           });
           res.send({
             message: "success",
+            token: accessToken,
           });
         } else {
           res.send("Not Allowed");
