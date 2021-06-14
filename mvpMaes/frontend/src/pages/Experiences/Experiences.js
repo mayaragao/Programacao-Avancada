@@ -44,8 +44,8 @@ class ExperiencesPage extends Component {
   }
 
   async SearchExperiences() {
-    const token = await api.get("auth/user");
-    console.log(`token is :${token}`);
+    // const token = await api.get("auth/user");
+    // console.log(`token is :${token}`);
     var list_experiences = [];
     var data_experience = null;
     try {
