@@ -84,7 +84,6 @@ Content-Type: image/png
 
 ###Download image route
 GET http://localhost:4000/images/download HTTP/1.1
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzY0MDAwNywiZXhwIjoxNjIzNjQxODA3fQ.-6L0e4R-y9TVlBlH4DlosJmFemymmBEKkIYKCYwNQ48
 
 
