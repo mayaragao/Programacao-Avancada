@@ -1,6 +1,6 @@
 const router = require('express').Router();
 let Image = require('../models/images.model');
-
+const pathlib = require('path');
 
 const multer = require('multer');
 
@@ -97,12 +97,19 @@ router.route('/upload').post(upload.single('userImage'), (req, res) => {
 
   router.route('/download').get((req, res) => {
     console.log('Download image called.')
-      Image.find({username:req.user.username})
+      Image.findOne({username:req.user.username})
       .then(imageFetched => {
-        res.sendFile(imageFetched.path)
+        console.log(`Image found is: ${imageFetched}, and PATH: ${imageFetched.path}`)
+        var resolvedPath = pathlib.resolve(__dirname+"/../"+imageFetched.path)
+        if (imageFetched !== null) {
+          res.sendFile(resolvedPath)
+          return
+        }
+        res.status(404).json({message:'image not found.'})        
       })
-      .catch(imageFetched => {
-        res.send.status(403).json({message: 'failed', error: 'user unidentified'})
+      .catch( err => {
+        console.log(err)
+        res.status(403).json({message: 'failed', error: 'user unidentified'})
       })
     });
 
