@@ -18,17 +18,28 @@ const LoginPage = () => {
   const [passwordLog, setpasswordLog] = useState(``);
   const submit = async () => {
     try {
-      api.post("auth/login", {
+      await api.post("auth/login", {
         username: usernameLog,
         password: passwordLog,
       });
-      history.push("experiencias");
+      getToken();
+      // history.push("experiencias");
     } catch (err) {
       console.log(err);
       console.log("Problema ao registrar requisição.");
     }
   };
-
+  const getToken = async () => {
+    try {
+      const token = api
+        .get("auth/user")
+        .then((response) => console.log(response));
+      console.log(token);
+    } catch (err) {
+      console.log(err);
+      console.log("Something went wrong");
+    }
+  };
   return (
     <Container>
       <Row>
