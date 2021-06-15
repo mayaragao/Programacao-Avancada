@@ -56,6 +56,7 @@ router.route("/login").post((req, res) => {
           });
           res.send({
             message: "success",
+            token: accessToken,
           });
         } else {
           res.send("Not Allowed");
@@ -73,8 +74,18 @@ router.route("/login").post((req, res) => {
 
 router.get("/user", async (req, res) => {
   try {
-    const cookie = req.cookies["jwt"];
+    var cookie = req.cookies["jwt"];
+    if (cookie == null) {
+      const authHeader = req.headers['authorization']
+      const token = authHeader && authHeader.split(' ')[1]
+      if (token == null) return res.sendStatus(401)
+      cookie = token
+    }
     console.log(`my cookie: ${cookie}`);
+
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401)
 
     const claims = jwt.verify(
       cookie,
