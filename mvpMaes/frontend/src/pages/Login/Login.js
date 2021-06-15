@@ -26,12 +26,17 @@ const LoginPage = () => {
       })
       .then((response) => {
         console.log(response);
-        history.push("experiencias");
+        var token = response.data.token;
+        localStorage.setItem("token", token);
+        history.push("/experiencias");
       })
       .catch((error) => {
         console.log(error);
+
         alert("Não foi possível realizar a autenticação, tente novamente.");
       });
+    event.stopPropagation();
+    return false;
   };
 
   return (
@@ -48,6 +53,7 @@ const LoginPage = () => {
                   value={usernameLog}
                   onChange={(e) => setusernameLog(e.target.value)}
                 />
+                <Form.Control.Feedback id="feedbackNome" type="invalid" />
               </Form.Group>
               <Form.Group controlId="formGroupPassword">
                 <Form.Control
@@ -56,6 +62,7 @@ const LoginPage = () => {
                   value={passwordLog}
                   onChange={(e) => setpasswordLog(e.target.value)}
                 />
+                <Form.Control.Feedback id="feedbackSenha" type="invalid" />
               </Form.Group>
               <Button type="submit">Entrar</Button>
             </Form>
