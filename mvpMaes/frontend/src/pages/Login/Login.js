@@ -16,37 +16,31 @@ import { LinkContainer } from "react-router-bootstrap";
 const LoginPage = () => {
   const [usernameLog, setusernameLog] = useState("");
   const [passwordLog, setpasswordLog] = useState(``);
-  const submit = async () => {
-    try {
-      await api.post("auth/login", {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    api
+      .post("auth/login", {
         username: usernameLog,
         password: passwordLog,
+      })
+      .then((response) => {
+        console.log(response);
+        history.push("experiencias");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Não foi possível realizar a autenticação, tente novamente.");
       });
-      getToken();
-      // history.push("experiencias");
-    } catch (err) {
-      console.log(err);
-      console.log("Problema ao registrar requisição.");
-    }
   };
-  const getToken = async () => {
-    try {
-      const token = api
-        .get("auth/user")
-        .then((response) => console.log(response));
-      console.log(token);
-    } catch (err) {
-      console.log(err);
-      console.log("Something went wrong");
-    }
-  };
+
   return (
     <Container>
       <Row>
         <Col>
           <LeftContainer>
             <Title>LOGIN</Title>
-            <Form onSubmit={submit}>
+            <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formGroupEmail">
                 <Form.Control
                   type="name"

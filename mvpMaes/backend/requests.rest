@@ -41,7 +41,7 @@ content-type: application/json
 #Veja que é necessário enviar com a requisição o token recebido quando se fez login.
 #Não é possível buscar todas as experiências sem um token.
 GET http://localhost:4000/aexperiencias HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzUzMjIyOCwiZXhwIjoxNjIzNTM0MDI4fQ.muHfooP_UQZ9OBs17nHlBgn-f40rphQQnnqtuvlPZEk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzY5OTk5OCwiZXhwIjoxNjIzNzAxNzk4fQ.hcNt4xM_PTu7GleFyZveQb03G3yUvUIIgqd6VtxF3PM
 
 ### Comentar experiencias
 POST http://localhost:4000/experiencias/comment HTTP/1.1
@@ -72,7 +72,7 @@ content-type: application/json
 ####Uploading images route
 POST http://localhost:4000/images/upload HTTP/1.1
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzYyODIzOSwiZXhwIjoxNjIzNjMwMDM5fQ.M-r4YMlVfre72G3JCzIj0Y_C_LUcFjRyO52kF-X8_e4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzcwMTU5NiwiZXhwIjoxNjIzNzAzMzk2fQ.URXj1ImG6Fuj826ZVwd3UNo0uOSfNJfvMoWY3a_1-gQ
 
 userImage
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
@@ -84,7 +84,7 @@ Content-Type: image/png
 
 ###Download image route
 GET http://localhost:4000/images/download HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzY0MDAwNywiZXhwIjoxNjIzNjQxODA3fQ.-6L0e4R-y9TVlBlH4DlosJmFemymmBEKkIYKCYwNQ48
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFzaCIsImlhdCI6MTYyMzcwMTU5NiwiZXhwIjoxNjIzNzAzMzk2fQ.URXj1ImG6Fuj826ZVwd3UNo0uOSfNJfvMoWY3a_1-gQ
 
 
 

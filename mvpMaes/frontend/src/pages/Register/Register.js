@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import api from "../../api";
-import history from "../../history";
+import { useHistory } from "react-router-dom";
 import LoginImage from "../../assets/images/login_image.svg";
 import {
   Container,
@@ -17,16 +17,20 @@ const RegisterPage = () => {
   const [usernameReg, setusernameReg] = useState("");
   const [passwordReg, setpasswordReg] = useState("");
 
-  const submit = () => {
-    try {
-      api
+  const history = useHistory();
+
+  const handleSubmit = event => {  
+    event.preventDefault();  
+    api
         .post("auth/register", { username: usernameReg, password: passwordReg })
-        .then((response) => console.log(response));
-      history.push("login");
-    } catch (err) {
-      console.log(err);
-      console.log("Problema ao registrar requisição.");
-    }
+        .then((response) => {
+          console.log(response);
+          history.push("login")
+        })
+      .catch((error) =>  {
+      console.log(error);
+      alert("Esse usuário e senha já está cadastrado.")
+    })
   };
 
   return (
@@ -35,7 +39,7 @@ const RegisterPage = () => {
         <Col>
           <LeftContainer>
             <Title>CADASTRO</Title>
-            <Form onSubmit={submit}>
+            <Form onSubmit={handleSubmit} >
               <Form.Group controlId="formGroupEmail">
                 <Form.Control
                   type="E-mail"
