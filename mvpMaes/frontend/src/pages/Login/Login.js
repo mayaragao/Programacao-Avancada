@@ -28,7 +28,9 @@ const LoginPage = () => {
         console.log(response);
         var token = response.data.token;
         localStorage.setItem("token", token);
+        localStorage.setItem("username", usernameLog);
         history.push("/experiencias");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

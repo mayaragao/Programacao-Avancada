@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import ExperienceImage from "../../assets/images/experience_register_image.svg";
-import { Container, RightContainer, LeftContainer, Title, Button } from "../styles";
+import {
+  Container,
+  RightContainer,
+  LeftContainer,
+  Title,
+  Button,
+} from "../styles";
 import { LinkContainer } from "react-router-bootstrap";
 
 import ExperienceService from "../../services/experienceService";
-
 
 class ExperienceRegisterPage extends Component {
   constructor(props) {
@@ -25,12 +30,14 @@ class ExperienceRegisterPage extends Component {
     }
 
     var data_add_experience = {
-      username: "Anonimo",
+      username: localStorage.getItem("username"),
       description: description,
     };
 
     try {
-      const response_add_experience = await ExperienceService.addExperience(data_add_experience);
+      const response_add_experience = await ExperienceService.addExperience(
+        data_add_experience
+      );
       console.log("added", response_add_experience);
     } catch (err_comment_experience) {
       console.log(err_comment_experience);
@@ -48,10 +55,17 @@ class ExperienceRegisterPage extends Component {
               <Title>MINHA EXPERIÊNCIA</Title>
               <Form>
                 <Form.Group controlId="formGroupExperience">
-                  <Form.Control id="formExperienceDescription" as="textarea" rows={10} />
+                  <Form.Control
+                    id="formExperienceDescription"
+                    as="textarea"
+                    rows={10}
+                  />
                 </Form.Group>
               </Form>
-              <LinkContainer onClick={() => this.addExperience()} to="/experiencias">
+              <LinkContainer
+                onClick={() => this.addExperience()}
+                to="/experiencias"
+              >
                 <Button>Salvar</Button>
               </LinkContainer>
             </LeftContainer>
