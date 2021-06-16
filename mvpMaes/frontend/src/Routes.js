@@ -1,22 +1,40 @@
-import React, {} from "react";
-import { BrowserRouter as Router, Switch, Route,  } from "react-router-dom";
+import React, { useContext} from "react";
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import LoginPage from "./pages/Login/Login";
 import ExperiencesPage from "./pages/Experiences/Experiences";
 import RegisterPage from "./pages/Register/Register";
 import ExperienceRegisterPage from "./pages/ExperienceRegister/ExperienceRegister";
 import App from "./App";
+import { AuthProvider , Context} from "./context/AuthContext";
+import history from './history';
 
 const Routes = () => {
+
+  function CustomRoute({isPrivate, ...rest}){
+
+    const {authenticated} = useContext(Context);
+
+    if (isPrivate && !authenticated)
+    {
+      return <Redirect to= "login"/> 
+    } 
+
+    return <Route {...rest}/>
+  }
+
  return(  
-    <Router>
+  <AuthProvider>
+    <Router history={history}>
       <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/experiencias" component={ExperiencesPage} />
-        <Route path="/cadastro" component={RegisterPage} />
-        <Route path="/cadastrarExperiencia" component={ExperienceRegisterPage} />
+         <CustomRoute  path="/" component={App} />       
+          <CustomRoute path="/login" component={LoginPage} />       
+          <CustomRoute  isPrivate path="/experiencias" component={ExperiencesPage} />
+          <CustomRoute isPrivate path="/cadastro" component={RegisterPage} />
+          <CustomRoute isPrivate path="/cadastrarExperiencia" component={ExperienceRegisterPage} />
       </Switch>
     </Router>
+    </AuthProvider>
+
    )
  
 };

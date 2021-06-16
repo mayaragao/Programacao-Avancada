@@ -1,9 +1,10 @@
-import httpBackend from "../http-backend";
+import api from "../api";
 
 class UserService {
   getUser() {
-    return httpBackend.get("/users");
+    return api.get("/users");
   }
 }
 
 export default new UserService();
+                                                                                        

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Row, Col, Form } from "react-bootstrap";
-import api from "../../api";
-import history from "../../history";
+import { Context } from "../../context/AuthContext"
 import LoginImage from "../../assets/images/login_image.svg";
 import {
   Container,
@@ -12,26 +11,24 @@ import {
   InlineButton,
 } from "../styles";
 import { LinkContainer } from "react-router-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const LoginPage = () => {
   const [usernameLog, setusernameLog] = useState("");
-  const [passwordLog, setpasswordLog] = useState(``);
+  const [passwordLog, setpasswordLog] = useState("");
+  const {authenticated, handleLogin} = useContext(Context);
 
+  const history = useHistory();
+
+  console.log(authenticated);
 
   const handleSubmit = event => {  
-    event.preventDefault();  
-    api.post("auth/login", {
-      username: usernameLog,
-      password: passwordLog,
-    }).then(response => {
-      console.log(response);
-      history.push("experiencias");
-    }).catch((error) =>  {
-      console.log(error);
-      alert("Não foi possível realizar a autenticação, tente novamente.")
-    })
-  };
-   
+    event.preventDefault();      
+      handleLogin(usernameLog, passwordLog);     
+
+
+  };   
+
   return (
     <Container>
       <Row>

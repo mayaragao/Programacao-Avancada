@@ -50,7 +50,7 @@ class ExperiencesPage extends Component {
     var data_experience = null;
     try {
       const response_experiences = await ExperienceService.getExperiences();
-      console.log("conseguiu!", response_experiences);
+      console.log("pegou as experiencias!", response_experiences);
       for (const [idx, obj] of response_experiences.data.entries()) {
         data_experience = {
           _id: obj._id,

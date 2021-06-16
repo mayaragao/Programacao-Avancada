@@ -13,6 +13,7 @@ import {
 } from "../styles";
 import { LinkContainer } from "react-router-bootstrap";
 
+
 const RegisterPage = () => {
   const [usernameReg, setusernameReg] = useState("");
   const [passwordReg, setpasswordReg] = useState("");

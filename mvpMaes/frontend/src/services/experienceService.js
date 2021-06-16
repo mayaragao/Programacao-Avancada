@@ -1,17 +1,17 @@
-import httpBackend from "../http-backend";
+import api from "../api";
 
 class ExperienceService {
   getExperiences() {
-    return httpBackend.get("/experiencias");
+    return api.get("/experiencias");
   }
   addExperience(data) {
-    return httpBackend.post("/experiencias/add", data);
+    return api.post("/aexperiencias/add", data);
   }
   commentExperience(data) {
-    return httpBackend.post("/experiencias/comment", data);
+    return api.post("/aexperiencias/comment", data);
   }
   likeExperience(data) {
-    return httpBackend.post("/experiencias/like", data);
+    return api.post("/aexperiencias/like", data);
   }
 }
 
