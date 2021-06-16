@@ -36,12 +36,12 @@ const fs = require('fs');
 
 
 //Busca experiencia dado o ID da experiencia
-router.route('/upload').post(upload.single('userImage'), (req, res) => {
+router.route('/upload').post(upload.single('image'), (req, res) => {
   console.log('Upload image called.')
-  //console.log(req.file);
+  console.log(`Printing req ${req}`);
 
   username = req.user.username;
-  console.log(req.user)
+  console.log(`Printing req.user: ${req.user}`)
   originalname = req.file.originalname;
   mimetype = req.file.mimetype
   destination = req.file.destination
