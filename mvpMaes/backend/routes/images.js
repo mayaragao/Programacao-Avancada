@@ -36,7 +36,7 @@ const fs = require('fs');
 
 
 //Busca experiencia dado o ID da experiencia
-router.route('/upload').post(upload.single('userImage'), (req, res) => {
+router.route('/upload').post(upload.single('image'), (req, res) => {
   console.log('Upload image called.')
   //console.log(req.file);
 
@@ -95,7 +95,7 @@ router.route('/upload').post(upload.single('userImage'), (req, res) => {
   });
 
 
-  router.route('/download').get((req, res) => {
+router.route('/download').get((req, res) => {
     console.log('Download image called.')
       Image.findOne({username:req.user.username})
       .then(imageFetched => {
@@ -111,7 +111,7 @@ router.route('/upload').post(upload.single('userImage'), (req, res) => {
         console.log(err)
         res.status(403).json({message: 'failed', error: 'user unidentified'})
       })
-    });
+});
 
 module.exports = router;
 
