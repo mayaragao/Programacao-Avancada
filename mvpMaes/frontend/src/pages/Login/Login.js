@@ -22,12 +22,10 @@ const LoginPage = () => {
 
   console.log(authenticated);
 
-  const handleSubmit = event => {  
+   const handleSubmit = event => {  
     event.preventDefault();      
-      handleLogin(usernameLog, passwordLog);     
-
-
-  };   
+       handleLogin(usernameLog, passwordLog);     
+     };   
 
   return (
     <Container>

@@ -26,11 +26,11 @@ const Routes = () => {
   <AuthProvider>
     <Router history={history}>
       <Switch>
-         <CustomRoute  path="/" component={App} />       
-          <CustomRoute path="/login" component={LoginPage} />       
-          <CustomRoute  isPrivate path="/experiencias" component={ExperiencesPage} />
-          <CustomRoute isPrivate path="/cadastro" component={RegisterPage} />
-          <CustomRoute isPrivate path="/cadastrarExperiencia" component={ExperienceRegisterPage} />
+         <CustomRoute exact  path="/" component={App} />       
+          <CustomRoute exact path="/login" component={LoginPage} />       
+          <CustomRoute exact isPrivate path="/experiencias" component={ExperiencesPage} />
+          <CustomRoute exact isPrivate path="/cadastro" component={RegisterPage} />
+          <CustomRoute exact isPrivate path="/cadastrarExperiencia" component={ExperienceRegisterPage} />
       </Switch>
     </Router>
     </AuthProvider>
