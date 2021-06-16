@@ -1,8 +1,18 @@
 version: "3.3"
 services:
-  momsapp:
-    container_name: moms
-    image: "luado/mvpmaes"
+  frontend:
+    container_name: moms-front
+    build:
+      context: ./mvpMaes/frontend
+      dockerfile: Dockerfile
     ports:
-        - 3000:3000
-        - 4000:4000
+      - 3000:3000
+    depends_on:
+      - backend
+  backend:
+    container_name: moms-back
+    build:
+      context: ./mvpMaes/backend
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000

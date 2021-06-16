@@ -95,7 +95,7 @@ router.route('/upload').post(upload.single('image'), (req, res) => {
   });
 
 
-  router.route('/download').get((req, res) => {
+router.route('/download').get((req, res) => {
     console.log('Download image called.')
       Image.findOne({username:req.user.username})
       .then(imageFetched => {
@@ -111,7 +111,7 @@ router.route('/upload').post(upload.single('image'), (req, res) => {
         console.log(err)
         res.status(403).json({message: 'failed', error: 'user unidentified'})
       })
-    });
+});
 
 module.exports = router;
 
