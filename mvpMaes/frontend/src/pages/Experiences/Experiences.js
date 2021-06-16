@@ -21,9 +21,10 @@ class ExperiencesPage extends Component {
     this.likeExperience = this.likeExperience.bind(this);
     this.SaveComment = this.SaveComment.bind(this);
     this.postImage = this.postImage.bind(this);
-
+    this.GetImage = this.GetImage.bind(this);
     this.state = {
       list_experiences: [],
+      imagem: null,
     };
   }
 
@@ -74,6 +75,8 @@ class ExperiencesPage extends Component {
       },
     });
     await ax.post("images/upload", data);
+    this.image = true;
+    this.GetImage();
   }
   async SearchExperiences() {
     var list_experiences = [];
@@ -139,11 +142,32 @@ class ExperiencesPage extends Component {
     var formId = "formComent" + key.toString();
     document.getElementById(formId).classList.add("d-none");
   }
+  async GetImage() {
+    var token = localStorage.getItem("token");
+    const ax = axios.create({
+      baseURL: "http://localhost:4000/",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    const a = await ax.get("images/download");
+    console.log(a);
+    this.setState({ imagem: a });
+    return a;
+  }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header>
+          <div id="headerid">
+            <input type="file" onChange={this.onFileChange} />
+            <button onClick={this.onFileUpload}>
+              <FontAwesomeIcon icon={faImage} size="lg" />
+              {this.image ? <img src={this.state.imagem.data} alt="" /> : <></>}
+            </button>
+          </div>
+        </Header>
         <Container>
           <ButtonContainer>
             <LinkContainer to="/cadastrarExperiencia">
@@ -188,12 +212,6 @@ class ExperiencesPage extends Component {
                         style={{ cursor: "pointer" }}
                       />
                       {/* <i class="far fa-comment-dots"></i> Comentar */}
-                    </Card.Link>
-                    <Card.Link>
-                      <input type="file" onChange={this.onFileChange} />
-                      <button onClick={this.onFileUpload}>
-                        <FontAwesomeIcon icon={faImage} />
-                      </button>
                     </Card.Link>
 
                     <div style={{ marginTop: "10px" }}>
