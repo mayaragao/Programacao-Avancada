@@ -5,7 +5,12 @@ import { Header, Button, ButtonContainer } from "./styles";
 import "./Experiences.css";
 import ExperienceService from "../../services/experienceService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faCommentDots } from "@fortawesome/free-regular-svg-icons";
+import {
+  faHeart,
+  faCommentDots,
+  faImage,
+} from "@fortawesome/free-regular-svg-icons";
+import axios from "axios";
 class ExperiencesPage extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +20,7 @@ class ExperiencesPage extends Component {
     this.SearchExperiences = this.SearchExperiences.bind(this);
     this.likeExperience = this.likeExperience.bind(this);
     this.SaveComment = this.SaveComment.bind(this);
+    this.postImage = this.postImage.bind(this);
 
     this.state = {
       list_experiences: [],
@@ -41,7 +47,34 @@ class ExperiencesPage extends Component {
 
     await this.SearchExperiences();
   }
-
+  state = {
+    selectedFile: null,
+  };
+  onFileChange = (event) => {
+    this.setState({ selectedFile: event.target.files[0] });
+  };
+  onFileUpload = () => {
+    const formData = new FormData();
+    formData.append(
+      "image",
+      this.state.selectedFile,
+      this.state.selectedFile.name
+    );
+    this.postImage(formData);
+  };
+  async postImage(data) {
+    var user = localStorage.getItem("username");
+    var token = localStorage.getItem("token");
+    const ax = axios.create({
+      baseURL: "http://localhost:4000/",
+      headers: {
+        "Content-type":
+          "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+        Authorization: "Bearer " + token,
+      },
+    });
+    await ax.post("images/upload", data);
+  }
   async SearchExperiences() {
     var list_experiences = [];
     var data_experience = null;
@@ -155,6 +188,12 @@ class ExperiencesPage extends Component {
                         style={{ cursor: "pointer" }}
                       />
                       {/* <i class="far fa-comment-dots"></i> Comentar */}
+                    </Card.Link>
+                    <Card.Link>
+                      <input type="file" onChange={this.onFileChange} />
+                      <button onClick={this.onFileUpload}>
+                        <FontAwesomeIcon icon={faImage} />
+                      </button>
                     </Card.Link>
 
                     <div style={{ marginTop: "10px" }}>
